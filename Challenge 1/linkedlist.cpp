@@ -51,10 +51,11 @@ void LinkedList::display(std::ostream &os)
 
     while (tmp != nullptr)
     {
-        os << tmp->data << std::endl;
+        os << tmp->data << " ";
 
         tmp = tmp->next;
     }
+     os << std::endl;
 }
 
 bool LinkedList::remove(int data)
