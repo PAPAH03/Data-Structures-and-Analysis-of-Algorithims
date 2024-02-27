@@ -6,13 +6,13 @@
 
 #pragma once
 
-class Stack
+class Queue
 {
 private:
-    Node *top;
+    Node *first,*last;
 public:
-    Stack(): top(nullptr) {}
-    ~Stack();
+    Queue(): first(nullptr),last(nullptr) {}
+    ~Queue();
 
     void push(int data);
     bool pop();
@@ -20,7 +20,7 @@ public:
 
     void display(std::ostream &os);
 
-    friend std::ostream &operator<<(std::ostream &os, Stack &right);
+    friend std::ostream &operator<<(std::ostream &os, Queue &right);
 
 };
 

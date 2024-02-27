@@ -1,9 +1,9 @@
 #include "iostream"
-#include "stack.hpp"
+#include "queue.hpp"
 
 int main()
 {
-    Stack S;
+    Queue S;
     int tmp;
     S.push(5);
     S.peek(tmp);
@@ -29,5 +29,4 @@ int main()
     S.peek(tmp);
     std::cout << tmp << std::endl;
     return 0;
-    rand;
 }
