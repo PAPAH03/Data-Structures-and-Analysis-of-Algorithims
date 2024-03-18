@@ -14,8 +14,8 @@ public:
     Queue(): first(nullptr),last(nullptr) {}
     ~Queue();
 
-    void push(int data);
-    bool pop();
+    void enqueue(int data);
+    bool dequeue();
     int peek(int &data);
 
     void display(std::ostream &os);
