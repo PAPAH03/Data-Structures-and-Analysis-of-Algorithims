@@ -11,7 +11,7 @@ Queue::~Queue()
     }
     last = nullptr;
 }
-void Queue::push(int data)
+void Queue::enqueue(int data)
 {
     Node *tmp = new Node(data);
 
@@ -20,7 +20,7 @@ void Queue::push(int data)
 
     last=tmp;
 }
-bool Queue::pop()
+bool Queue::dequeue()
 {
     Node *tmp = first;
 
