@@ -3,30 +3,30 @@
 
 int main()
 {
-    Queue S;
+    Queue Q;
     int tmp;
-    S.push(5);
-    S.peek(tmp);
+    Q.enqueue(5);
+    Q.peek(tmp);
     std::cout << tmp << std::endl;
-    S.push(33);
-    S.push(1);
-    S.push(7);
-    S.peek(tmp);
+    Q.enqueue(33);
+    Q.enqueue(1);
+    Q.enqueue(7);
+    Q.peek(tmp);
     std::cout << tmp << std::endl;
-    S.push(33);
-    S.push(12);
-    S.display( std::cout );
-    S.pop( );
-    S.display( std::cout );
-    S.push(14);
-    S.display( std::cout );
-    S.pop( );
-    S.pop( );
-    S.display( std::cout );
-    S.pop( );
-    S.pop( );
-    S.display( std::cout );
-    S.peek(tmp);
+    Q.enqueue(33);
+    Q.enqueue(12);
+    Q.display( std::cout );
+    Q.dequeue( );
+    Q.display( std::cout );
+    Q.enqueue(14);
+    Q.display( std::cout );
+    Q.dequeue( );
+    Q.dequeue( );
+    Q.display( std::cout );
+    Q.dequeue( );
+    Q.dequeue( );
+    Q.display( std::cout );
+    Q.peek(tmp);
     std::cout << tmp << std::endl;
     return 0;
 }

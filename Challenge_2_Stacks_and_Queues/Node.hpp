@@ -3,13 +3,14 @@
 
 #pragma once
 
-struct Node{
-    int data;
-    Node *next;
+class Node{
+    public:
+        int data;
+        Node *next;
 
-    //Constructors
-    Node(): data(0), next(nullptr) {}
-    Node(int data): data(data), next(nullptr){}
-    Node(int data, Node *next): data(data), next(next){}
+        //Constructors
+        Node(): data(0), next(nullptr) {}
+        Node(int dataIn): data(dataIn), next(nullptr){}
+        Node(int dataIn2, Node *nextIn): data(dataIn2), next(nextIn){}
 };
 #endif
