@@ -23,6 +23,11 @@ bool BST::insert(Node *&node, int data)
     return false;
 }
 
+bool BST::remove(Node *&node, int data)
+{
+   
+}
+
 bool BST::find(Node* node, int data)
 {
     if (node == nullptr){
