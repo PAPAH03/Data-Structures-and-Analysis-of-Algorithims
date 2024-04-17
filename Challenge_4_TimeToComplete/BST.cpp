@@ -5,17 +5,18 @@ using namespace std;
 
 BST::~BST()
 {
-    while(root != nullptr)
+    while (root != nullptr)
     {
-        remove(root,root->data);
+        remove(root, root->data);
     }
 }
 
-bool BST::insert(Node *&node, int data)
+bool BST::insert(Node*& node, int data)
 {
     if (node == nullptr) {
         node = new Node(data);
-        return true; }
+        return true;
+    }
     if (data < node->data)
         return insert(node->left, data);
     if (data > node->data)
@@ -23,15 +24,27 @@ bool BST::insert(Node *&node, int data)
     return false;
 }
 
-bool BST::remove(Node *&node, int data)
+bool BST::insertRandomNumber(Node*& node, int count, int maxRand)
 {
-    if (node == nullptr){
+    srand(static_cast<unsigned int>(time(nullptr))); // Seed the random number generator with current time
+    for (int i = 0; i < count; ++i)
+    {
+        int randomNum = rand() % maxRand; // Generate a random number between 0 and maxRand - 1
+        insert(node, randomNum); // Use node parameter instead of calling insert directly
+    }
+    return true;
+}
+
+
+bool BST::remove(Node*& node, int data)
+{
+    if (node == nullptr) {
         return false;
     }
-    if (data < node->data){
+    if (data < node->data) {
         return remove(node->left, data);
     }
-    if (data > node->data){
+    if (data > node->data) {
         return remove(node->right, data);
     }
     int deg = node->degree();
@@ -41,42 +54,51 @@ bool BST::remove(Node *&node, int data)
         delete node;
         node = nullptr;
     }
+
     else if (deg == 1)
     {
         Node* tmp = node;
-        if (node->left != nullptr) {
-        node = node->left;
+
+        if (node->left != nullptr)
+        {
+            node = node->left;
         }
-        else {
-        node = node->right;
+
+        else
+        {
+            node = node->right;
         }
         delete tmp;
     }
-    else{
-    Node *tmp = node->left;
-    while (tmp->right != nullptr)
+
+    else
     {
-        tmp = tmp->right;
-    }
-    node->data = tmp->data;
-    remove(node->left, tmp->data);
+        Node* tmp = node->left;
+
+        while (node->right != nullptr)
+        {
+            tmp = tmp->right;
+        }
+
+        node->data = tmp->data;
+        remove(node->left, tmp->data);
     }
     return true;
 }
 
 bool BST::find(Node* node, int data)
 {
-    if (node == nullptr){
+    if (node == nullptr) {
         return false;
     }
-    if (node->data == data){
+    if (node->data == data) {
         return true;
     }
-    if (data > node->data){
+    if (data > node->data) {
         node = node->right;
         return find(node, data);
     }
-    if(data < node->data){
+    if (data < node->data) {
         node = node->left;
         return find(node, data);
     }
@@ -112,11 +134,11 @@ void BST::inOrder(Node* node, ostream& os)
 int Node::degree() const
 {
     int degree = 0;
-    if(this->left != nullptr){
-        degree ++;
+    if (this->left != nullptr) {
+        degree++;
     }
-    if(this->right != nullptr){
-        degree ++;
+    if (this->right != nullptr) {
+        degree++;
     }
     return degree;
 }
@@ -126,25 +148,31 @@ int Node::degree() const
 
 bool BST::insert(int data)
 {
-    return insert(root,data);
+    return insert(root, data);
 }
+
+bool BST::insertRandomNumber(int count, int maxRand)
+{
+    return insertRandomNumber(root, count, maxRand);
+}
+
 bool BST::remove(int data)
 {
-    return remove(root,data);
+    return remove(root, data);
 }
 bool BST::find(int data)
 {
-    return find(root,data);
+    return find(root, data);
 }
 void BST::inOrder(ostream& os)
 {
-    inOrder(root,os);
+    inOrder(root, os);
 }
 void BST::preOrder(ostream& os)
 {
-    preOrder(root,os);
+    preOrder(root, os);
 }
 void BST::postOrder(ostream& os)
 {
-    postOrder(root,os);
+    postOrder(root, os);
 }
